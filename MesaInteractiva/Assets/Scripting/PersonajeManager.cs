@@ -55,12 +55,20 @@ public class PersonajeManager : MonoBehaviour
         dialogoText.text = mensaje;
     }
 
+    public void JugarPool()
+    {
+        // Cambiar a la escena del pool
+        SceneManager.LoadScene("pool");
+    }
+
     public void CerrarDialogo()
     {
         // Cierra el Canvas y devuelve la cámara a su posición original
         canvasDialogo.SetActive(false);
         StartCoroutine(ResetearCamara());
     }
+
+
 
     IEnumerator ResetearCamara()
     {
