@@ -10,27 +10,30 @@ public class PersonajeManager : MonoBehaviour
     public Text dialogoText;           // Texto del diálogo en el Canvas
     public string mensaje;             // Mensaje del personaje
 
-    public Camera mainCamera;          // Cámara principal
+   /* public Camera mainCamera;          // Cámara principal
     public Transform personajeTarget;  // Transform del personaje 3D al que la cámara se acercará
 
     public float duracionTransicion = 1.5f;  // Duración de la transición de la cámara
     private Vector3 posicionInicialCamara;   // Posición original de la cámara
-    private Quaternion rotacionInicialCamara; // Rotación original de la cámara
+    private Quaternion rotacionInicialCamara; // Rotación original de la cámara*/
 
-    private void Start()
+   /* private void Start()
     {
         // Guardar la posición y rotación original de la cámara al inicio
         posicionInicialCamara = mainCamera.transform.position;
         rotacionInicialCamara = mainCamera.transform.rotation;
-    }
+    }*/
 
     private void OnMouseDown()
     {
         // Inicia la transición de la cámara hacia el personaje 3D
-        StartCoroutine(MoverCamara());
+        // StartCoroutine(MoverCamara());
+         // Activar el Canvas del diálogo y mostrar el mensaje
+        canvasDialogo.SetActive(true);
+        dialogoText.text = mensaje;
     }
 
-    IEnumerator MoverCamara()
+    /*IEnumerator MoverCamara()
     {
         float tiempo = 0;
 
@@ -50,10 +53,8 @@ public class PersonajeManager : MonoBehaviour
         mainCamera.transform.position = posicionObjetivo;
         mainCamera.transform.rotation = rotacionObjetivo;
 
-        // Activar el Canvas del diálogo y mostrar el mensaje
-        canvasDialogo.SetActive(true);
-        dialogoText.text = mensaje;
-    }
+       
+    }*/
 
     public void JugarPool()
     {
@@ -65,12 +66,12 @@ public class PersonajeManager : MonoBehaviour
     {
         // Cierra el Canvas y devuelve la cámara a su posición original
         canvasDialogo.SetActive(false);
-        StartCoroutine(ResetearCamara());
+        //StartCoroutine(ResetearCamara());
     }
 
 
 
-    IEnumerator ResetearCamara()
+   /* IEnumerator ResetearCamara()
     {
         float tiempo = 0;
 
@@ -85,6 +86,6 @@ public class PersonajeManager : MonoBehaviour
 
         mainCamera.transform.position = posicionInicialCamara;
         mainCamera.transform.rotation = rotacionInicialCamara;
-    }
+    }*/
 }
 
