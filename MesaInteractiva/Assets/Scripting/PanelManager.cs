@@ -15,16 +15,14 @@ public class PanelManager : MonoBehaviour
     public GameObject botonBarra;     // Botón para abrir el panel de diálogo
     public GameObject botonCerrar;    // Botón para cerrar el panel
 
-    private void OnMouseDown()  // Este método se ejecuta cuando se hace clic en el objeto con el script
+    private void OnMouseDown()  // Método que se ejecuta cuando se hace clic en el objeto con el script
     {
-        if (canvasPanel != null) 
+        if (canvasPanel != null)
         {
-            // Asegúrate de que el canvas esté activado al hacer clic
+            // Activa el canvas y el panel principal al hacer clic
             canvasPanel.SetActive(true);
-            
-            // Activa el panel principal y desactiva el panel de diálogo
             panelPrincipal.SetActive(true);
-            panelDialogo.SetActive(false);
+            ActivarDialogo();  // Activa el diálogo inmediatamente
         }
         else
         {
@@ -34,10 +32,10 @@ public class PanelManager : MonoBehaviour
 
     private void Start()
     {
-        // Aseguramos que los paneles estén en su estado inicial
+        // Asegura que el canvas esté inactivo al inicio
         if (canvasPanel != null)
         {
-            canvasPanel.SetActive(false);  // Deja el canvas inactivo al principio
+            canvasPanel.SetActive(false);
         }
 
         // Asignamos los botones de acción
@@ -61,7 +59,7 @@ public class PanelManager : MonoBehaviour
     {
         // Código para cargar otra escena o realizar otra acción
         Debug.Log("Cargar juego");
-        SceneManager.LoadScene("pool");  // Aquí reemplaza "nombreEscena" por el nombre real de la escena
+        SceneManager.LoadScene("pool");  // Reemplaza "pool" con el nombre real de la escena
     }
 
     private void ActivarDialogo()
@@ -74,6 +72,9 @@ public class PanelManager : MonoBehaviour
     private void CerrarPanel()
     {
         // Desactiva todo el canvas
-        canvasPanel.SetActive(false);
+        if (canvasPanel != null)
+        {
+            canvasPanel.SetActive(false);  // Deja inactivo el canvas
+        }
     }
 }
